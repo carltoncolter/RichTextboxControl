@@ -1,0 +1,86 @@
+<ImportExportXml version="9.0.0000.1103" SolutionPackageVersion="9.0" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SolutionManifest>
+		<UniqueName>RichTextBoxControl</UniqueName>
+		<LocalizedNames>
+			<LocalizedName description="RichTextBoxControl" languagecode="1033" />
+		</LocalizedNames>
+		<Descriptions>
+			<Description description="Need assistance, have suggestions, then visit this solution on github:  https://github.com/carltoncolter/ckeditor5-dynamics365" languagecode="1033" />
+		</Descriptions>
+		<Version>0.1.0.39</Version>
+		<Managed>0</Managed>
+		<Publisher>
+			<UniqueName>fedbizapps</UniqueName>
+			<LocalizedNames>
+				<LocalizedName description="FedBizApps" languagecode="1033" />
+			</LocalizedNames>
+			<Descriptions />
+			<EMailAddress xsi:nil="true"/>
+			<SupportingWebsiteUrl xsi:nil="true"/>
+			<CustomizationPrefix>fdbzap</CustomizationPrefix>
+			<CustomizationOptionValuePrefix>74121</CustomizationOptionValuePrefix>
+			<Addresses>
+				<Address>
+					<AddressNumber>1</AddressNumber>
+					<AddressTypeCode>1</AddressTypeCode>
+					<City xsi:nil="true"/>
+					<County xsi:nil="true"/>
+					<Country xsi:nil="true"/>
+					<Fax xsi:nil="true"/>
+					<FreightTermsCode xsi:nil="true"/>
+					<ImportSequenceNumber xsi:nil="true"/>
+					<Latitude xsi:nil="true"/>
+					<Line1 xsi:nil="true"/>
+					<Line2 xsi:nil="true"/>
+					<Line3 xsi:nil="true"/>
+					<Longitude xsi:nil="true"/>
+					<Name xsi:nil="true"/>
+					<PostalCode xsi:nil="true"/>
+					<PostOfficeBox xsi:nil="true"/>
+					<PrimaryContactName xsi:nil="true"/>
+					<ShippingMethodCode>1</ShippingMethodCode>
+					<StateOrProvince xsi:nil="true"/>
+					<Telephone1 xsi:nil="true"/>
+					<Telephone2 xsi:nil="true"/>
+					<Telephone3 xsi:nil="true"/>
+					<TimeZoneRuleVersionNumber xsi:nil="true"/>
+					<UPSZone xsi:nil="true"/>
+					<UTCOffset xsi:nil="true"/>
+					<UTCConversionTimeZoneCode xsi:nil="true"/>
+				</Address>
+				<Address>
+					<AddressNumber>2</AddressNumber>
+					<AddressTypeCode>1</AddressTypeCode>
+					<City xsi:nil="true"/>
+					<County xsi:nil="true"/>
+					<Country xsi:nil="true"/>
+					<Fax xsi:nil="true"/>
+					<FreightTermsCode xsi:nil="true"/>
+					<ImportSequenceNumber xsi:nil="true"/>
+					<Latitude xsi:nil="true"/>
+					<Line1 xsi:nil="true"/>
+					<Line2 xsi:nil="true"/>
+					<Line3 xsi:nil="true"/>
+					<Longitude xsi:nil="true"/>
+					<Name xsi:nil="true"/>
+					<PostalCode xsi:nil="true"/>
+					<PostOfficeBox xsi:nil="true"/>
+					<PrimaryContactName xsi:nil="true"/>
+					<ShippingMethodCode>1</ShippingMethodCode>
+					<StateOrProvince xsi:nil="true"/>
+					<Telephone1 xsi:nil="true"/>
+					<Telephone2 xsi:nil="true"/>
+					<Telephone3 xsi:nil="true"/>
+					<TimeZoneRuleVersionNumber xsi:nil="true"/>
+					<UPSZone xsi:nil="true"/>
+					<UTCOffset xsi:nil="true"/>
+					<UTCConversionTimeZoneCode xsi:nil="true"/>
+				</Address>
+			</Addresses>
+		</Publisher>
+		<RootComponents>
+			<RootComponent type="66" schemaName="FDBZAP.Controls.RichTextBoxControl" behavior="0" />
+		</RootComponents>
+		<MissingDependencies />
+	</SolutionManifest>
+</ImportExportXml>

@@ -19,7 +19,9 @@ module.exports = {
 		'@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter',
 		'@ckeditor/ckeditor5-autoformat/src/autoformat',
 		'@ckeditor/ckeditor5-basic-styles/src/bold',
+		'@ckeditor/ckeditor5-basic-styles/src/code',
 		'@ckeditor/ckeditor5-basic-styles/src/italic',
+		'@ckeditor/ckeditor5-basic-styles/src/underline',
 		'@ckeditor/ckeditor5-block-quote/src/blockquote',
 		'@ckeditor/ckeditor5-easy-image/src/easyimage',
 		'@ckeditor/ckeditor5-heading/src/heading',
@@ -32,6 +34,8 @@ module.exports = {
 		'@ckeditor/ckeditor5-list/src/list',
 		'@ckeditor/ckeditor5-paragraph/src/paragraph',
 		'@ckeditor/ckeditor5-image/src/imageupload',
+		'@ckeditor/ckeditor5-font/src/fontfamily',
+		'@ckeditor/ckeditor5-font/src/fontsize'
 	],
 
 	// Editor config.
@@ -39,14 +43,19 @@ module.exports = {
 		toolbar: {
 			items: [
 				'heading',
+				'fontFamily',
+				'fontSize',
 				'|',
 				'bold',
 				'italic',
+				'underline',
+				'|',
 				'link',
 				'bulletedList',
 				'numberedList',
 				'imageUpload',
 				'blockQuote',
+				'code',
 				'undo',
 				'redo'
 			]

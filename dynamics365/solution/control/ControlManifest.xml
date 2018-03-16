@@ -1,0 +1,16 @@
+<manifest>
+	<control namespace="FDBZAP.Controls" constructor="RichTextBoxControl" version="1.0.0" display-name-key="FDBZAP_RichTextBox_Control">
+		<modes>
+            <read />
+			<edit />
+        </modes>
+		<type-group name="text">
+			<type>Multiple</type>
+		</type-group>
+		<property name="value" display-name-key="RichTextBoxControl_value" description-key="RichTextBoxControl_value_desc" of-type-group="text" usage="bound" required="true" hidden="false" />
+		<resources>
+			<code path="RichTextBoxControl.js" order="1" />
+			<resx path="strings/RichTextBoxControl.1033.resx" version="1.0.0" />
+		</resources>
+	</control>
+</manifest>

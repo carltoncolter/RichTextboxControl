@@ -1,0 +1,36 @@
+{
+    "defaultSeverity": "warning",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {
+    },
+    "rules": {
+        "no-string-literal": false,
+        "no-console": false, 
+        "no-namespace": false,
+        "no-redundant-jsdoc": true,
+        "unified-signatures": false,
+        "class-name": true,
+        "indent": [true, "spaces", 4],
+        "max-classes-per-file":false,
+        "max-line-length": [true, 250],
+        "no-unnecessary-type-assertion": false,
+        "quotemark": [true, "double"],
+        "jsdoc-format": true,
+        "no-unnecessary-generics": false,
+        "no-empty-interface": false,
+        "no-empty": false,
+        "no-trailing-whitespace": false,
+        "deprecation": true,
+        "comment-format": [true, "check-space"],
+        "align":[true, "statements", "members"],
+        "one-line":[true, "check-catch", "check-finally", "check-else"],
+        "no-reference":false,
+        "no-conditional-assignment":false,
+        "no-shadowed-variable": false,
+        "variable-name": [true, "check-format", "allow-leading-underscore"],
+        "object-literal-key-quotes": [true, "consistent"]
+    },
+    "rulesDirectory": []
+}

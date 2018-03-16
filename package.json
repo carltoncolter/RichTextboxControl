@@ -23,6 +23,7 @@
     "@ckeditor/ckeditor5-easy-image": "^1.0.0-beta.1",
     "@ckeditor/ckeditor5-editor-classic": "^1.0.0-beta.1",
     "@ckeditor/ckeditor5-essentials": "^1.0.0-beta.1",
+    "@ckeditor/ckeditor5-font": "^1.0.0-beta.1",
     "@ckeditor/ckeditor5-heading": "^1.0.0-beta.1",
     "@ckeditor/ckeditor5-image": "^1.0.0-beta.1",
     "@ckeditor/ckeditor5-link": "^1.0.0-beta.1",
@@ -30,7 +31,10 @@
     "@ckeditor/ckeditor5-paragraph": "^1.0.0-beta.1",
     "@ckeditor/ckeditor5-theme-lark": "^1.0.0-beta.1",
     "@ckeditor/ckeditor5-upload": "^1.0.0-beta.1",
+    "@types/jquery": "^3.3.1",
+    "@types/xrm": "^9.0.3",
     "babel-minify-webpack-plugin": "^0.3.0",
+    "fs-extra": "^5.0.0",
     "postcss-loader": "^2.0.10",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.19.1",
@@ -50,9 +54,11 @@
     "url": "https://github.com/ckeditor/ckeditor5-build-classic.git"
   },
   "scripts": {
-    "build": "npm run create-entry-file && npm run build-ckeditor",
+    "build": "npm run build-dynamics365-typescript && npm run create-entry-file && npm run build-ckeditor && npm run package-solution",
+    "build-dynamics365-typescript": "tsc -p tsconfig.json",
     "create-entry-file": "node bin/create-entry-file.js",
-    "build-ckeditor": "sh bin/build-ckeditor.sh",
+    "build-ckeditor": "webpack",
+    "package-solution": "node bin/packsolution.js",
     "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi"
   }
 }

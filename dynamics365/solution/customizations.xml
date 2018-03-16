@@ -1,0 +1,25 @@
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Entities></Entities>
+  <Roles></Roles>
+  <Workflows></Workflows>
+  <FieldSecurityProfiles></FieldSecurityProfiles>
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings>
+    <customization>
+      <isappmode>False</isappmode>
+    </customization>
+  </OrganizationSettings>
+  <optionsets />
+  <CustomControls>
+    <CustomControl>
+      <Name>RichTextBoxControlManifest.xml</Name>
+      <FileName>/Controls/RichTextBoxControl/ControlManifest.xml</FileName>
+    </CustomControl>
+  </CustomControls>
+  <EntityDataProviders />
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

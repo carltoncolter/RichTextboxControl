@@ -14,11 +14,12 @@ const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' 
 const BabiliPlugin = require( 'babel-minify-webpack-plugin' );
 const buildConfig = require( './build-config' );
 
+
 module.exports = {
 	devtool: 'source-map',
 
 	entry: path.resolve( __dirname, 'src', 'ckeditor.js' ),
-
+	
 	output: {
 		path: path.resolve( __dirname, 'build' ),
 		filename: 'ckeditor.js',
@@ -70,4 +71,4 @@ module.exports = {
 			}
 		]
 	}
-};
+}
