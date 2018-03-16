@@ -8,7 +8,9 @@ import EssentialsPlugin from '@ckeditor/ckeditor5-essentials/src/essentials';
 import UploadadapterPlugin from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import AutoformatPlugin from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import BoldPlugin from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import CodePlugin from '@ckeditor/ckeditor5-basic-styles/src/code';
 import ItalicPlugin from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import UnderlinePlugin from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import BlockquotePlugin from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import EasyimagePlugin from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import HeadingPlugin from '@ckeditor/ckeditor5-heading/src/heading';
@@ -21,6 +23,8 @@ import LinkPlugin from '@ckeditor/ckeditor5-link/src/link';
 import ListPlugin from '@ckeditor/ckeditor5-list/src/list';
 import ParagraphPlugin from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import Imageupload1Plugin from '@ckeditor/ckeditor5-image/src/imageupload';
+import FontfamilyPlugin from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontsizePlugin from '@ckeditor/ckeditor5-font/src/fontsize';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -30,7 +34,9 @@ ClassicEditor.build = {
 		UploadadapterPlugin,
 		AutoformatPlugin,
 		BoldPlugin,
+		CodePlugin,
 		ItalicPlugin,
+		UnderlinePlugin,
 		BlockquotePlugin,
 		EasyimagePlugin,
 		HeadingPlugin,
@@ -42,20 +48,27 @@ ClassicEditor.build = {
 		LinkPlugin,
 		ListPlugin,
 		ParagraphPlugin,
-		Imageupload1Plugin
+		Imageupload1Plugin,
+		FontfamilyPlugin,
+		FontsizePlugin
 	],
 	config: {
 		toolbar: {
 			items: [
 				'heading',
+				'fontFamily',
+				'fontSize',
 				'|',
 				'bold',
 				'italic',
+				'underline',
+				'|',
 				'link',
 				'bulletedList',
 				'numberedList',
 				'imageUpload',
 				'blockQuote',
+				'code',
 				'undo',
 				'redo'
 			]
