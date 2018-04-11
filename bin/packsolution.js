@@ -42,7 +42,7 @@ zipper.zip(root + "build/solution", function (error, zipped) {
         if (error) { console.log(error);}
         zipped.save(root + solutionZip);
         // cleanup
-        del("build/ckeditor.js");
+        // del("build/ckeditor.js");  // don't delete - it allows for testing...
         del("build/translations"); // we could probably use this to generate better strings resx...
         del("build/ckeditor.js.map"); //should we be keeping and merging the map files?
         del("src/RichTextBoxControl.js");
