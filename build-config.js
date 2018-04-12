@@ -34,7 +34,7 @@ module.exports = {
 		'@ckeditor/ckeditor5-paragraph/src/paragraph',
 		'@ckeditor/ckeditor5-image/src/imageupload',
 		'@ckeditor/ckeditor5-font/src/fontfamily',
-		'@ckeditor/ckeditor5-font/src/fontsize',
+		'@ckeditor/ckeditor5-font/src/fontsize'
 	],
 
 	// Editor config.

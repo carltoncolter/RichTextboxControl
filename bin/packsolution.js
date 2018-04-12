@@ -7,7 +7,8 @@ const root = __dirname + "/../";
 
 fs.ensureDir(root+"build/solution/Controls/RichTextBoxControl/strings");
 
-concat([root + "build/ckeditor.js", 
+concat([root + "src/fix.js",
+        root + "build/ckeditor.js", 
         root + "src/seperator.js", 
         root + "src/RichTextBoxControl.js", 
        ], 
