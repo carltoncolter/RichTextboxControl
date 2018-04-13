@@ -28,4 +28,4 @@ Upload the solution to Dynamics.  Then you can use it as acustom control on any 
 
 ## License
 
-CKeditor5 is licensed under the GPL, LGPL and MPL licenses, at your choice. Webpack & Babel are licensed under the MIT license.  All fo the other source code for this project can be licensed under the MIT License as well as the GPL License.  For full details about the license, please check the [LICENSE.md](https://github.com/carltoncolter/ckeditor5-dynamics365/blob/master/LICENSE.md) file.
+CKeditor5 is licensed under the GPL, LGPL and MPL licenses, at your choice. Webpack & Babel are licensed under the MIT license.  All of the other source code for this project can be licensed under the MIT License as well as the GPL License.  For full details about the license, please check the [LICENSE.md](https://github.com/carltoncolter/ckeditor5-dynamics365/blob/master/LICENSE.md) file.
