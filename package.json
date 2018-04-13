@@ -1,7 +1,7 @@
 {
-  "name": "@ckeditor/ckeditor5-build-classic",
-  "version": "1.0.0-beta.1",
-  "description": "CKEditor 5 classic editor build.",
+  "name": "ckeditor5-dynamics365",
+  "version": "0.1.0-alpha",
+  "description": "CKEditor 5 Classic Editor for Dynamics 365",
   "keywords": [
     "ckeditor5",
     "ckeditor5-build",
@@ -45,13 +45,13 @@
     "node": ">=6.0.0",
     "npm": ">=3.0.0"
   },
-  "author": "CKSource (http://cksource.com/)",
-  "license": "(GPL-2.0 OR LGPL-2.1 OR MPL-1.1)",
-  "homepage": "https://ckeditor5.github.io",
-  "bugs": "https://github.com/ckeditor/ckeditor5-build-classic/issues",
+  "author": "Carlton Colter",
+  "license": "GPL-2.0",
+  "homepage": "https://github.com/carltoncolter/ckeditor5-dynamics365",
+  "bugs": "https://github.com/carltoncolter/ckeditor5-dynamics365/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ckeditor/ckeditor5-build-classic.git"
+    "url": "https://github.com/carltoncolter/ckeditor5-dynamics365.git"
   },
   "scripts": {
     "build": "npm run build-dynamics365-typescript && npm run create-entry-file && npm run build-ckeditor && npm run package-solution",

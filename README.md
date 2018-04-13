@@ -1,69 +1,31 @@
-CKEditor 5 classic editor build
-========================================
-
-[![Join the chat at https://gitter.im/ckeditor/ckeditor5](https://badges.gitter.im/ckeditor/ckeditor5.svg)](https://gitter.im/ckeditor/ckeditor5?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![npm version](https://badge.fury.io/js/%40ckeditor%2Fckeditor5-build-classic.svg)](https://www.npmjs.com/package/@ckeditor/ckeditor5-build-classic)
-[![Dependency Status](https://david-dm.org/ckeditor/ckeditor5-build-classic/status.svg)](https://david-dm.org/ckeditor/ckeditor5-build-classic)
-[![devDependency Status](https://david-dm.org/ckeditor/ckeditor5-build-classic/dev-status.svg)](https://david-dm.org/ckeditor/ckeditor5-build-classic?type=dev)
-
-The classic editor build for CKEditor 5. Read more about the [classic editor build](https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/builds/guides/overview.html#classic-editor) and see the [demo](https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/examples/builds/classic-editor.html).
-
-## Documentation
-
-See:
-
-* [Installation](https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/builds/guides/integration/installation.html) for how to install this package and what it contains.
-* [Basic API](https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/builds/guides/integration/basic-api.html) for how to create an editor and interact with it.
-* [Configuration](https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/builds/guides/integration/configuration.html) for how to configure the editor.
-* [Creating custom builds](https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/builds/guides/development/custom-builds.html) for how to customize the build (configure and rebuild the editor bundle).
+CKEditor 5 Dynamics365 Rich Textbox Control
+===========================================
 
 ## Quick start
 
-First, install the build from npm:
+First, fork the project or download the source, etc.  Run npm install to install dependencies.
 
 ```
-npm install --save @ckeditor/ckeditor5-build-classic
+npm install
 ```
 
-And use it in your website:
+And then run the build to create the solution zip file:
 
-```html
-<div id="editor">
-	<p>This is the editor content.</p>
-</div>
-<script src="./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
-<script>
-	ClassicEditor
-		.create( document.querySelector( '#editor' ) )
-		.then( editor => {
-			window.editor = editor;
-		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
-</script>
+```
+npm run build
 ```
 
-Or in your JavaScript application:
+Upload the solution to Dynamics.  Then you can use it as acustom control on any multi-lined textbox.
 
-```js
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+## How does it work
 
-// Or using CommonJS verion:
-// const ClassicEditor = require( '@ckeditor/ckeditor5-build-classic' );
-
-ClassicEditor
-	.create( document.querySelector( '#editor' ) )
-	.then( editor => {
-		window.editor = editor;
-	} )
-	.catch( err => {
-		console.error( err.stack );
-	} );
-```
-
-**Note:** If you are planning to integrate CKEditor 5 deep into your application, it is actually more convenient and recommended to install and import the source modules directly (like it happens in `ckeditor.js`). Read more in the [Advanced setup guide](https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/builds/guides/integration/advanced-setup.html).
+1. First the control is leveraging ckeditor5 as the control to embed.  The RickTextBoxControl.ts binds the editor to CRM.  The most important parts of this are:
+  * the code in _onChange that sets the `context.parameters.value.raw = data`.
+  * `notifyOutputChanged` is used to notify the system the value was updated.  Once the data in your control has been changed, you need to fire `notifyOutputChanged`.
+  * the `init` code is probably the most important because it not only builds the dom portion of the control inside of the specified container, it also binds the `notifyOutputChanged` to the client, allowing you to tell the client that your control changed the `context.parameters.value`.
+  * `updateView` is ran anytime something elseupdates the value (like using the Client Side API).
+2. The control is intentionally log heavy on the console.  It logs the beginning of each method that was called, allowing you to see what happened in order of execution on the console.  If you are going to develop your own control, seeing the order of execution may help your understanding.
 
 ## License
 
-Licensed under the GPL, LGPL and MPL licenses, at your choice. For full details about the license, please check the `LICENSE.md` file.
+CKeditor5 is licensed under the GPL, LGPL and MPL licenses, at your choice. Webpack & Babel are licensed under the MIT license.  All fo the other source code for this project can be licensed under the MIT License as well as the GPL License.  For full details about the license, please check the [LICENSE.md](https://github.com/carltoncolter/ckeditor5-dynamics365/blob/master/LICENSE.md) file.

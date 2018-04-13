@@ -7,15 +7,12 @@ declare var ClassicEditor: any;
 namespace FDBZAP {
     export namespace Controls {
         export class TextComparer {
-            public hash: number;
-            private _isRunning: boolean;
             private value: string;
-            constructor() {
-                this._isRunning = false;
-            }
+
             public update(data: string) {
                 this.value = data.toString();
             }
+
             public compareTo(data: string, saveIfDifferent?: boolean): boolean {
                 if (this.value.length !== data.length) {
                     return false;
@@ -30,6 +27,7 @@ namespace FDBZAP {
                 }
                 return false;
             }
+
             public hashCode(data: string): number {
                 let hash: number = 0;
                 if (!data) {
@@ -46,6 +44,7 @@ namespace FDBZAP {
                 return hash;
             }
         }
+
         export class RichTextBoxControl {
             public get isCurrentlyBeingEdited() {
                 return (this.editor && this.editor.data && this.editor.ui.focusTracker.isFocused);
@@ -60,6 +59,7 @@ namespace FDBZAP {
             private error: any = null;
             private readonly: boolean;
             private gettingOutput: boolean;
+            private destroying: boolean;
 
             /**
              * Notify framework value was changed
@@ -77,17 +77,9 @@ namespace FDBZAP {
                 return this.isCurrentlyBeingEdited || this._isDirtyValue();
             }
 
-            public _isDirtyValue() {
-                console.log("RichTextBoxControl._isDirtyValue");
-                if (this.editor) {
-                    return this.dirty || this.comparer.compareTo(this.context.parameters.value.raw);
-                }
-                return false; // not finished loading...
-            }
-
             public renderReadMode() {
                 console.log("RichTextBoxControl.renderReadMode");
-                this.disableControlInteraction();
+                this._disableControlInteraction();
             }
 
             public renderEditMode() {
@@ -99,13 +91,14 @@ namespace FDBZAP {
                 return (this.error !== null);
             }
 
+            /********** Identified as most likely required methods *******/
             public setControlState(context: any) {
                 console.log("RichTextBoxControl.setControlState");
                 this.shouldNotifyOutputChanged = !(context.mode.isControlDisabled || !context.parameters.value.security.editable || context.page && context.page.isPageReadOnly);
                 if (!this.shouldNotifyOutputChanged) {
-                    this.disableControlInteraction();
+                    this._disableControlInteraction();
                 } else {
-                    this.enableControlInteraction();
+                    this._enableControlInteraction();
                 }
             }
 
@@ -117,32 +110,7 @@ namespace FDBZAP {
                     return this.context.mode.isControlDisabled;
                 }
             }
-
-            public destroyCore() {
-                console.log("RichTextBoxControl.destroyCore");
-                if (this.editor) {
-                    this.editor.destroy();
-                    this.editor = null;
-                }
-            }
-
-            public disableControlInteraction() {
-                console.log("RichTextBoxControl.disableControlInteraction");
-                this.readonly = true;
-                if (this.editor) {
-                    this.editor.isReadOnly = true;
-                }
-            }
-
-            public enableControlInteraction() {
-                console.log("RichTextBoxControl.enableControlInteraction");
-                this.readonly = false;
-                if (this.editor) {
-                    this.editor.isReadOnly = false;
-                }
-            }
-
-            /********** Identified as most likely required methods *******/
+            
             public updateView(context: any) {
                 console.log("RichTextBoxControl.updateView");
                 if (this.gettingOutput) {
@@ -162,7 +130,7 @@ namespace FDBZAP {
 
             public destroy() {
                 console.log("RichTextBoxControl.destroy");
-                this.destroyCore();
+                this._destroy(!this.destroying);
             }
 
             public getOutputs() {
@@ -171,13 +139,12 @@ namespace FDBZAP {
                 if (this.editor) {
                     return { value: this.editor.getData() };
                 } else {
-                    return { value: this.context.parameters.value.raw || "" }
+                    return { value: this.context.parameters.value.raw || "" };
                 }
             }
 
             public init(context: any, notifyOutputChanged: () => void, state?: any, container?: HTMLDivElement) {
                 console.log("RichTextBoxControl.init");
-                console.log("RichTextBoxControl.initCore");
                 this.context = context;
                 this.notifyOutputChanged = notifyOutputChanged;
                 //  debugger;
@@ -197,7 +164,8 @@ namespace FDBZAP {
                 context.utils.bindDOMElement(textareaControl, textarea);
 
                 ClassicEditor.create(textarea, {
-                    toolbar: ["undo", "redo", "bold", "italic", "blockquote", "imagetextalternative", "insertimage", "headings", "imagestylefull", "imagestyleside", "link", "numberedlist", "bulletedlist"]
+                    toolbar: ["undo", "redo", "bold", "italic", "blockquote", "imagetextalternative", "insertimage", "headings", 
+                              "imagestylefull", "imagestyleside", "link", "numberedlist", "bulletedlist"],
                 })
                     .then((editor: any) => {
                         console.log("RichTextBoxControl.internal.editor.init");
@@ -230,15 +198,51 @@ namespace FDBZAP {
             public onPreNavigation() {
                 console.log("RichTextBoxControl.onPreNavigation");
             }
+            
+            private _destroy(destroy: boolean) {
+                console.log("RichTextBoxControl._destory");
+                if (!destroy) {
+                    return;
+                }
+                this.destroying = true;
+                if (this.editor) {
+                    this.editor.destroy();
+                    this.editor = null;
+                }
+            }
 
-            private getMaxLength() {
-                console.log("RichTextBoxControl.getMaxLength");
+            private _disableControlInteraction() {
+                console.log("RichTextBoxControl._disableControlInteraction");
+                this.readonly = true;
+                if (this.editor) {
+                    this.editor.isReadOnly = true;
+                }
+            }
+
+            private _enableControlInteraction() {
+                console.log("RichTextBoxControl._enableControlInteraction");
+                this.readonly = false;
+                if (this.editor) {
+                    this.editor.isReadOnly = false;
+                }
+            }
+
+            private _getMaxLength() {
+                console.log("RichTextBoxControl._getMaxLength");
                 return this.context.parameters.value.attributes.MaxLength;
             }
 
-            private getAttributeName() {
-                console.log("RichTextBoxControl.getAttributeName");
+            private _getAttributeName() {
+                console.log("RichTextBoxControl._getAttributeName");
                 return this.context.parameters.value.attributes.LogicalName;
+            }
+
+            private _isDirtyValue() {
+                console.log("RichTextBoxControl._isDirtyValue");
+                if (this.editor) {
+                    return this.dirty || this.comparer.compareTo(this.context.parameters.value.raw);
+                }
+                return false; // not finished loading...
             }
 
             private _onChange(evt?: any, propertyName?: string, newValue?: any, oldValue?: any) {
@@ -246,7 +250,7 @@ namespace FDBZAP {
 
                 if (this.editor) {
                     const data = this.editor.getData();
-                    if (data.length > this.getMaxLength() /* || data.length > 1048576 -D365 Max size */) {
+                    if (data.length > this._getMaxLength() /* || data.length > 1048576 -D365 Max size */) {
                         return false;
                     }
                     if (!this.comparer.compareTo(data, true)) {
