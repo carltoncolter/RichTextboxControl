@@ -26,7 +26,7 @@ Upload the solution to Dynamics.  Then you can use it as acustom control on any 
   * the code in _onChange that sets the `context.parameters.value.raw = data`.
   * `notifyOutputChanged` is used to notify the system the value was updated.  Once the data in your control has been changed, you need to fire `notifyOutputChanged`.
   * the `init` code is probably the most important because it not only builds the dom portion of the control inside of the specified container, it also binds the `notifyOutputChanged` to the client, allowing you to tell the client that your control changed the `context.parameters.value`.
-  * `updateView` is ran anytime something elseupdates the value (like using the Client Side API).
+  * `updateView` is ran anytime something else updates the value (like using the Client Side API).
 2. The control is intentionally log heavy on the console.  It logs the beginning of each method that was called, allowing you to see what happened in order of execution on the console.  If you are going to develop your own control, seeing the order of execution may help your understanding.
 
 ## License
