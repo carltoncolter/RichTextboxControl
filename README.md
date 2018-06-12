@@ -1,5 +1,8 @@
-CKEditor5 Rich Textbox Control for Dynamics CDS 2.0 (PowerApps)
-===========================================
+CKEditor5 Rich Textbox Control
+=======================================================
+### A Rich Textbox Control for Dynamics CRM and CDS 2.0 (PowerApps)
+
+
 
 ## Quick start
 
