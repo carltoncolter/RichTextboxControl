@@ -32,14 +32,16 @@
     "@ckeditor/ckeditor5-theme-lark": "^1.0.0-beta.1",
     "@ckeditor/ckeditor5-upload": "^1.0.0-beta.1",
     "@types/jquery": "^3.3.1",
-    "@types/xrm": "^9.0.3",
+    "@types/xrm": "^9.0.9",
     "babel-minify-webpack-plugin": "^0.3.0",
+    "concat": "^1.0.3",
     "fs-extra": "^5.0.0",
     "postcss-loader": "^2.0.10",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
-    "webpack-sources": "1.0.1"
+    "webpack-sources": "1.0.1",
+    "zip-local": "^0.3.4"
   },
   "engines": {
     "node": ">=6.0.0",
