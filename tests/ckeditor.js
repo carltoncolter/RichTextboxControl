@@ -25,11 +25,11 @@ describe( 'ClassicEditor build', () => {
 
 	describe( 'buid', () => {
 		it( 'contains plugins', () => {
-			expect( ClassicEditor.build.plugins ).to.not.be.empty;
+			expect( ClassicEditor.builtinPlugins ).to.not.be.empty;
 		} );
 
 		it( 'contains config', () => {
-			expect( ClassicEditor.build.config.toolbar ).to.not.be.empty;
+			expect( ClassicEditor.defaultConfig.toolbar ).to.not.be.empty;
 		} );
 	} );
 
@@ -73,11 +73,11 @@ describe( 'ClassicEditor build', () => {
 		} );
 
 		it( 'restores the editor element', () => {
-			expect( editor.element.style.display ).to.equal( 'none' );
+			expect( editor.sourceElement.style.display ).to.equal( 'none' );
 
 			return editor.destroy()
 				.then( () => {
-					expect( editor.element.style.display ).to.equal( '' );
+					expect( editor.sourceElement.style.display ).to.equal( '' );
 				} );
 		} );
 	} );
@@ -195,7 +195,7 @@ describe( 'ClassicEditor build', () => {
 				.then( newEditor => {
 					editor = newEditor;
 
-					expect( editor.ui.view.toolbar.items.length ).to.equal( 11 );
+					expect( editor.ui.view.toolbar.items.length ).to.equal( 13 );
 					expect( editor.ui.view.stickyPanel.viewportTopOffset ).to.equal( 42 );
 				} );
 		} );

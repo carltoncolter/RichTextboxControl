@@ -163,10 +163,7 @@ namespace FDBZAP {
 
                 context.utils.bindDOMElement(textareaControl, textarea);
 
-                ClassicEditor.create(textarea, {
-                    toolbar: ["undo", "redo", "bold", "italic", "blockquote", "imagetextalternative", "insertimage", "headings", 
-                              "imagestylefull", "imagestyleside", "link", "numberedlist", "bulletedlist"],
-                })
+                ClassicEditor.create(textarea)
                     .then((editor: any) => {
                         console.log("RichTextBoxControl.internal.editor.init");
                         this.editor = editor;

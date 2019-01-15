@@ -1,1 +1,0 @@
-CKEDITOR_TRANSLATIONS = { add: function (k,v) { CKEDITOR_TRANSLATIONS[k]=v;}};

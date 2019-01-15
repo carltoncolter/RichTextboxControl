@@ -7,8 +7,7 @@ const root = __dirname + "/../";
 
 fs.ensureDir(root+"build/solution/Controls/RichTextBoxControl/strings");
 
-concat([root + "src/fix.js",
-        root + "build/ckeditor.js", 
+concat([root + "build/ckeditor.js", 
         root + "src/seperator.js", 
         root + "src/RichTextBoxControl.js", 
        ], 
@@ -43,11 +42,12 @@ zipper.zip(root + "build/solution", function (error, zipped) {
         if (error) { console.log(error);}
         zipped.save(root + solutionZip);
         // cleanup
-        // del("build/ckeditor.js");  // don't delete - it allows for testing...
-        del("build/translations"); // we could probably use this to generate better strings resx...
-        del("build/ckeditor.js.map"); //should we be keeping and merging the map files?
-        del("src/RichTextBoxControl.js");
-        del("src/RichTextBoxControl.js.map");
+        //del("build/ckeditor.js");  // don't delete - it allows for testing...
+        //del("build/translations"); // we could probably use this to generate better strings resx...
+        //del("build/ckeditor.js.map"); //should we be keeping and merging the map files?
+        //del("src/RichTextBoxControl.js");
+        //del("src/RichTextBoxControl.js.map");
         del("build/solution");
+        del("build/translations");
 });
 
