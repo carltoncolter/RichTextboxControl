@@ -57,7 +57,7 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-  Code,
+	Code,
     Underline,
 	FontFamily,
 	FontSize
